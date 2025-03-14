@@ -1,60 +1,92 @@
+import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
-import Homepage from "../pages/Homepage";
-import AboutPage from "../pages/AboutPage";
-import ProductsPage from "../pages/ProductsPage";
-import SavingsPage from "../pages/SavingsPage";
-import NotFound from "../pages/NotFound";
-import ContactPage from "../pages/subpages/Contact"; 
-import FAQPage from "../pages/subpages/faq"; 
-import History from "../pages/subpages/History"; 
-import Login from "../pages/Login"; 
-import Profile from "../pages/Profile"; 
-import ProtectedRoute from "../pages/ProtectedRoute/ProtectedRoute"; 
 
-const routes = (isLoggedIn) => [
+// Lazy loaded components
+const Homepage = lazy(() => import("../pages/Homepage"));
+const AboutPage = lazy(() => import("../pages/AboutPage"));
+const ProductsPage = lazy(() => import("../pages/ProductsPage"));
+const SavingsPage = lazy(() => import("../pages/SavingsPage"));
+const NotFound = lazy(() => import("../pages/NotFound"));
+const ContactPage = lazy(() => import("../pages/subpages/Contact")); 
+const FAQPage = lazy(() => import("../pages/subpages/faq")); 
+const History = lazy(() => import("../pages/subpages/History")); 
+
+// Regular components
+import Profile from "../pages/Profile"; 
+import Login from "../pages/Login"; 
+
+const routes = () => [
     {
         path: "/",
-        element: <Homepage />,
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <Homepage />
+            </Suspense>
+        ),
     },
     {
         path: "/about",
-        element: <AboutPage />,
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <AboutPage />
+            </Suspense>
+        ),
     },
     {
         path: "/about/contact", 
-        element: <ContactPage />,
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <ContactPage />
+            </Suspense>
+        ),
     },
     {
         path: "/about/faq", 
-        element: <FAQPage />,
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <FAQPage />
+            </Suspense>
+        ),
     },
     {
         path: "/about/history",  
-        element: <History />,
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <History />
+            </Suspense>
+        ),
     },
     {
         path: "/products",
-        element: <ProductsPage />,
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <ProductsPage />
+            </Suspense>
+        ),
     },
     {
         path: "/savings",
-        element: <SavingsPage />,
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <SavingsPage />
+            </Suspense>
+        ),
     },
     {
         path: "/login", 
-        element: <Login />, 
+        element: <Login />, // Ingen lazy loading för Login
     },
     {
         path: "/profile", 
-        element: (
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
-                <Profile />
-            </ProtectedRoute>
-        ), 
+        element: <Profile />, // Ingen lazy loading för Profile
     },
     {
         path: "*",
-        element: <NotFound />,
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <NotFound />
+            </Suspense>
+        ),
     },
 ];
 
