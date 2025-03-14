@@ -1,7 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-// Lazy loaded components
 const Homepage = lazy(() => import("../pages/Homepage"));
 const AboutPage = lazy(() => import("../pages/AboutPage"));
 const ProductsPage = lazy(() => import("../pages/ProductsPage"));
@@ -11,7 +10,7 @@ const ContactPage = lazy(() => import("../pages/subpages/Contact"));
 const FAQPage = lazy(() => import("../pages/subpages/faq")); 
 const History = lazy(() => import("../pages/subpages/History")); 
 
-// Regular components
+
 import Profile from "../pages/Profile"; 
 import Login from "../pages/Login"; 
 
@@ -74,11 +73,11 @@ const routes = () => [
     },
     {
         path: "/login", 
-        element: <Login />, // Ingen lazy loading för Login
+        element: <Login />, 
     },
     {
         path: "/profile", 
-        element: <Profile />, // Ingen lazy loading för Profile
+        element: <Profile />, 
     },
     {
         path: "*",
