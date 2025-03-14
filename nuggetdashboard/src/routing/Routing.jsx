@@ -8,8 +8,8 @@ import ContactPage from "../pages/subpages/Contact";
 import FAQPage from "../pages/subpages/faq"; 
 import History from "../pages/subpages/History"; 
 import Login from "../pages/Login"; 
-import Profile from "../pages/Profile"; // Importera Profile
-import ProtectedRoute from "../pages/ProtectedRoute/ProtectedRoute"; // Importera ProtectedRoute
+import Profile from "../pages/Profile"; 
+import ProtectedRoute from "../pages/ProtectedRoute/ProtectedRoute"; 
 
 const routes = (isLoggedIn) => [
     {
@@ -45,7 +45,7 @@ const routes = (isLoggedIn) => [
         element: <Login />, 
     },
     {
-        path: "/profile", // Rutt för profil
+        path: "/profile", 
         element: (
             <ProtectedRoute isLoggedIn={isLoggedIn}>
                 <Profile />
