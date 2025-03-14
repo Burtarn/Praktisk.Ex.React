@@ -6,9 +6,12 @@ import SavingsPage from "../pages/SavingsPage";
 import NotFound from "../pages/NotFound";
 import ContactPage from "../pages/subpages/Contact"; 
 import FAQPage from "../pages/subpages/faq"; 
-import History from "../pages/subpages/History";; 
+import History from "../pages/subpages/History"; 
+import Login from "../pages/Login"; 
+import Profile from "../pages/Profile"; // Importera Profile
+import ProtectedRoute from "../pages/ProtectedRoute/ProtectedRoute"; // Importera ProtectedRoute
 
-const routes = [
+const routes = (isLoggedIn) => [
     {
         path: "/",
         element: <Homepage />,
@@ -36,6 +39,18 @@ const routes = [
     {
         path: "/savings",
         element: <SavingsPage />,
+    },
+    {
+        path: "/login", 
+        element: <Login />, 
+    },
+    {
+        path: "/profile", // Rutt för profil
+        element: (
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+                <Profile />
+            </ProtectedRoute>
+        ), 
     },
     {
         path: "*",

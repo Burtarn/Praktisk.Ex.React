@@ -23,13 +23,18 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="nav-item">
+                        <Link to="/about" className="nav-links" onClick={toggleMenu}>
+                            Om Oss
+                        </Link>
+                    </li>
+                    <li className="nav-item">
                         <Link to="/products" className="nav-links" onClick={toggleMenu}>
                             Produkter
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Link to="/about" className="nav-links" onClick={toggleMenu}>
-                            Om Oss
+                        <Link to="/login" className="nav-links" onClick={toggleMenu}>
+                            Logga In
                         </Link>
                     </li>
                 </ul>
