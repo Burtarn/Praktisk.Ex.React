@@ -1,29 +1,46 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-} from "react-router-dom";
-import RootLayout from "./RootLayout";
-import HomePage from "../pages/Homepage";
-import ProductPage from "../pages/ProductsPage";
-import SavingsPage from "../pages/SavingsPage";
+import { createBrowserRouter } from "react-router-dom";
+import Homepage from "../pages/Homepage";
 import AboutPage from "../pages/AboutPage";
-import Faq from "../pages/subpages/Faq";
-import Contact from "../pages/subpages/Contact";
+import ProductsPage from "../pages/ProductsPage";
+import SavingsPage from "../pages/SavingsPage";
 import NotFound from "../pages/NotFound";
+import ContactPage from "../pages/subpages/Contact"; 
+import FAQPage from "../pages/subpages/faq"; 
+import History from "../pages/subpages/History";; 
 
-const route = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<RootLayout />}>
-      <Route index element={<HomePage />} />
-      <Route path="products" element={<ProductPage />} />
-      <Route path="calc" element={<SavingsPage />} />
-      <Route path="about" element={<AboutPage />}>
-        <Route path="faq" element={<Faq />} />
-        <Route path="contact" element={<Contact />} />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Route>
-  )
-);
-export default route;
+const routes = [
+    {
+        path: "/",
+        element: <Homepage />,
+    },
+    {
+        path: "/about",
+        element: <AboutPage />,
+    },
+    {
+        path: "/about/contact", 
+        element: <ContactPage />,
+    },
+    {
+        path: "/about/faq", 
+        element: <FAQPage />,
+    },
+    {
+        path: "/about/history",  
+        element: <History />,
+    },
+    {
+        path: "/products",
+        element: <ProductsPage />,
+    },
+    {
+        path: "/savings",
+        element: <SavingsPage />,
+    },
+    {
+        path: "*",
+        element: <NotFound />,
+    },
+];
+
+export default routes;

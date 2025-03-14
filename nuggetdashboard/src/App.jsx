@@ -1,10 +1,19 @@
-import { RouterProvider } from "react-router-dom";
-import route from "./routing/Routing";
-import "./index.css";
-import "mdb-react-ui-kit/dist/css/mdb.min.css";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import routes from './routing/Routing'; // Importera din rutt-konfiguration
+import Navbar from './components/Header/Navbar'; // Importera Navbar
 
-function App() {
-  return <RouterProvider router={route} />;
-}
+const App = () => {
+    return (
+        <Router>
+            <Navbar />
+            <Routes>
+                {routes.map((r, index) => (
+                    <Route key={index} path={r.path} element={r.element} />
+                ))}
+            </Routes>
+        </Router>
+    );
+};
 
 export default App;
