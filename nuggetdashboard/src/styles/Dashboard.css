@@ -1,0 +1,142 @@
+/* Allmän layout för dashboarden */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+
+.header {
+    background-color: #3b82f6; /* Blue background */
+    text-align: center;
+    padding: 2rem;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Main content */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+/* Search input */
+.search-input {
+    border: 1px solid #d1d5db;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+/* Container för sparmål */
+.savings-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Sektionens titel */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937; /* Dark gray */
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Grid-layout för sparmål */
+.savings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 640px) {
+    .savings-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .savings-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* Individuell sparmålskort */
+.savings-card {
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Information om sparmål */
+.savings-info {
+    font-size: 1rem;
+    color: #4b5563; /* Gray */
+    margin-bottom: 0.75rem;
+}
+
+.amount {
+    font-weight: bold;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #9ca3af; /* Light gray for completed */
+}
+
+/* Knapplayout */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-complete {
+    background-color: #3b82f6; /* Blue */
+    color: white;
+    border: none;
+}
+
+.btn-complete:hover {
+    background-color: #2563eb; /* Darker blue */
+}
+
+.btn-remove {
+    background-color: #ef4444; /* Red */
+    color: white;
+    border: none;
+}
+
+.btn-remove:hover {
+    background-color: #dc2626; /* Darker red */
+}
+
+/* Inget sparmål */
+.no-goals {
+    font-size: 1rem;
+    color: #6b7280; /* Gray */
+    text-align: center;
+    margin-top: 2rem;
+}

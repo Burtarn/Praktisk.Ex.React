@@ -8,11 +8,7 @@ function ProductPage() {
     return (
         <div>
             < BitCoinCalcForm />
-            < SaveCalcForm / >
-            <nav className="mb-4">
-                <Link to="bitcoin" className="text-blue-500 hover:underline mr-4">Bitcoin Kalkylator</Link>
-                <Link to="save-calc" className="text-blue-500 hover:underline">Spar Kalkylator</Link>
-            </nav>
+
             <Outlet /> 
         </div>
     );
