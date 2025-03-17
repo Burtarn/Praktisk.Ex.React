@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import routes from './routing/Routing'; // Importera din rutt-konfiguration
-import Navbar from './components/Header/Navbar'; // Importera Navbar
+import routes from './routing/Routing'; 
+import Navbar from './components/Header/Navbar'; 
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 
 const App = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false); // Hantera inloggningsstatus
-
+    const [isLoggedIn, setIsLoggedIn] = useState(false); 
     return (
         <Router>
             <Navbar setIsLoggedIn={setIsLoggedIn} /> {/* Skicka setIsLoggedIn till Navbar */}

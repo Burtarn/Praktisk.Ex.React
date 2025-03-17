@@ -2,15 +2,31 @@
     background: #333;
     height: 60px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
 .navbar-container {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Lägg till för att centrera vertikalt */
     width: 100%;
     padding: 0 20px;
+}
+
+.navbar-logo {
+    color: white;
+    margin-right: auto; 
+    font-size: 2rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0 auto; /* Centrerar menyn */
+}
+
+.nav-item {
+    margin: 0 15px;
 }
 
 .nav-links {
@@ -19,19 +35,15 @@
     padding: 15px;
 }
 
+.nav-login {
+    margin-left: auto; /* Gör så att inloggningen är till höger */
+}
+
 .menu-icon {
     display: none;
     cursor: pointer;
 }
 
-.nav-menu {
-    display: flex;
-    list-style: none;
-}
-
-.nav-item {
-    margin: 0 15px;
-}
 
 @media screen and (max-width: 768px) {
     .menu-icon {

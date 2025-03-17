@@ -9,10 +9,12 @@ const NotFound = lazy(() => import("../pages/NotFound"));
 const ContactPage = lazy(() => import("../pages/subpages/Contact")); 
 const FAQPage = lazy(() => import("../pages/subpages/faq")); 
 const History = lazy(() => import("../pages/subpages/History")); 
+const Dashboard = lazy(() => import("../pages/Dashboard"));
 
 
 import Profile from "../pages/Profile"; 
 import Login from "../pages/Login"; 
+
 
 const routes = () => [
     {
@@ -68,6 +70,14 @@ const routes = () => [
         element: (
             <Suspense fallback={<div>Loading...</div>}>
                 <SavingsPage />
+            </Suspense>
+        ),
+    },
+    {
+        path: "/dashboard", 
+        element: (
+            <Suspense fallback={<div>Loading...</div>}>
+                <Dashboard />
             </Suspense>
         ),
     },

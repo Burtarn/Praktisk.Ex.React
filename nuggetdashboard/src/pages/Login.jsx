@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/Login.css';
 
 const Login = ({ setIsLoggedIn }) => {
     const [username, setUsername] = useState('');
@@ -8,7 +9,6 @@ const Login = ({ setIsLoggedIn }) => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(username); // Debugging
 
         if (username === 'admin' && password === 'admin') {
             setIsLoggedIn(true);
@@ -19,10 +19,10 @@ const Login = ({ setIsLoggedIn }) => {
     };
 
     return (
-        <div>
-            <h2>Logga In</h2>
-            <form onSubmit={handleLogin}>
-                <div>
+        <div className="login-container">
+            <h2 className="login-title">Logga In</h2>
+            <form onSubmit={handleLogin} className="login-form">
+                <div className="form-group">
                     <label htmlFor="username">Användarnamn:</label>
                     <input
                         type="text"
@@ -30,9 +30,10 @@ const Login = ({ setIsLoggedIn }) => {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
+                        className="form-input"
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <label htmlFor="password">Lösenord:</label>
                     <input
                         type="password"
@@ -40,9 +41,10 @@ const Login = ({ setIsLoggedIn }) => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
+                        className="form-input"
                     />
                 </div>
-                <button type="submit">Logga In</button>
+                <button type="submit" className="login-button">Logga In</button>
             </form>
         </div>
     );
