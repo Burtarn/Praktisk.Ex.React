@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { bitcoinGrowth } from "../../store/bitcoinSlice";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 function BitCoinCalcForm() {
   const dispatch = useDispatch();
   const [startbelopp, setStartbelopp] = useState(10000);
   const [månadsinsättning, setMånadsinsättning] = useState(1000);
   const [år, setÅr] = useState(1);
-  const [mål, setMål] = useState(""); // Ny state för mål
-  const [modalVisible, setModalVisible] = useState(false); // State för modalen
-  const årligAvkastning = 30;
+  const [mål, setMål] = useState(""); 
+  const [modalVisible, setModalVisible] = useState(false); 
+  const årligAvkastning = 10;
 
   const beräknaFramtidaVärde = (startbelopp, månadsinsättning, år, årligAvkastning) => {
     const r = årligAvkastning / 100 / 12; 
@@ -133,11 +136,22 @@ function BitCoinCalcForm() {
         *Vi har beräknat att du kommer att få en årlig ökning på 30% per år.
       </p>
 
+      {/* Modal */}
       {modalVisible && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-5 rounded-lg shadow-lg">
-            <h2 className="text-lg font-bold">Sparande tillagt!</h2>
+            <FontAwesomeIcon icon={faCheckCircle} beat className="text-green-600 text-4xl" />
+            <h2 className="text-lg font-bold mt-2">Sparande tillagt!</h2>
             <p className="mt-2">Ditt sparande har lagts till framgångsrikt.</p>
+            <p className="mt-4">Visa dina vänner och familj:</p>
+            <div className="flex justify-center space-x-12 mt-2"> 
+              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faFacebook} className="text-blue-600 text-2xl" />
+              </a>
+              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                <FontAwesomeIcon icon={faInstagram} className="text-pink-600 text-2xl" />
+              </a>
+            </div>
             <button
               onClick={stängModal}
               className="mt-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
