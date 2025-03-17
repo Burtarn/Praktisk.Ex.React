@@ -1,20 +1,25 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeSavings, toggleComplete } from '../store/bitcoinSlice';
-import '../styles/Dashboard.css'; // Importera CSS-filen
+import '../styles/Dashboard.css';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
     const bitcoinSavings = useSelector((state) => state.bitcoinSavings.savings);
     const completed = useSelector((state) => state.bitcoinSavings.completed);
     const [searchTerm, setSearchTerm] = useState('');
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedIndex, setSelectedIndex] = useState(null);
 
-    const handleRemoveSavings = (index) => {
-        dispatch(removeSavings(index)); 
+    const handleRemoveSavings = () => {
+        if (selectedIndex !== null) {
+            dispatch(removeSavings(selectedIndex));
+            setIsModalOpen(false);
+        }
     };
 
     const handleToggleComplete = (index) => {
-        dispatch(toggleComplete(index)); 
+        dispatch(toggleComplete(index));
     };
 
     const filteredSavings = bitcoinSavings.filter(sparmål =>
@@ -55,7 +60,10 @@ const Dashboard = () => {
                                             Klar
                                         </button>
                                         <button 
-                                            onClick={() => handleRemoveSavings(index)} 
+                                            onClick={() => {
+                                                setSelectedIndex(index);
+                                                setIsModalOpen(true);
+                                            }} 
                                             className="btn btn-remove"
                                         >
                                             Ta bort
@@ -67,12 +75,26 @@ const Dashboard = () => {
                             <div className="no-goals">
                                 <p>Inga sparmål registrerade!</p>
                                 <p>Det ser ut som om du är på en sparmålsjakt, men hitills har du inte hittat något!</p>
-                                <p> Dags att sätta upp några mål och börja spara!</p>
+                                <p>Dags att sätta upp några mål och börja spara!</p>
                             </div>
                         )}
                     </div>
                 </div>
             </main>
+
+            {/* Modal för bekräftelse av borttagning */}
+            {isModalOpen && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <h2>Bekräfta borttagning</h2>
+                        <p>Är du säker på att du vill ta bort detta sparmål?</p>
+                        <div className="modal-buttons">
+                            <button onClick={handleRemoveSavings} className="btn btn-confirm">Ja, ta bort</button>
+                            <button onClick={() => setIsModalOpen(false)} className="btn btn-cancel">Avbryt</button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
