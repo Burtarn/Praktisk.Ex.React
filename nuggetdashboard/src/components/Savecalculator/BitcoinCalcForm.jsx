@@ -43,11 +43,11 @@ function BitCoinCalcForm() {
         mål: mål,
     };
     dispatch(bitcoinGrowth(värdenObjekt));
-    setModalVisible(true); // Visa modalen efter sparande
+    setModalVisible(true); 
   };
 
   const stängModal = () => {
-    setModalVisible(false); // Stäng modalen
+    setModalVisible(false); 
   };
 
   return (
@@ -136,7 +136,6 @@ function BitCoinCalcForm() {
         *Vi har beräknat att du kommer att få en årlig ökning på 30% per år.
       </p>
 
-      {/* Modal */}
       {modalVisible && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-white p-5 rounded-lg shadow-lg">

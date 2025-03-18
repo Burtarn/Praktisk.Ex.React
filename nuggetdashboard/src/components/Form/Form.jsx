@@ -6,7 +6,7 @@ function FormComponent() {
           Namn
         </label>
         <input
-          type="email"
+          type="text"
           className="form-control"
           id="exampleFormControlInput1"
           placeholder="Ander Andersson"

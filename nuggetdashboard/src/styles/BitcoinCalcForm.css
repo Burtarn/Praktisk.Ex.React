@@ -1,0 +1,39 @@
+/* BitCoinCalcForm.css */
+
+.bitcoin-calc-form {
+    background-color: var(--background-color, #ffffff);
+    color: var(--text-color, #000000);
+    border: 1px solid var(--border-color, #ccc);
+}
+
+.bitcoin-calc-form h5 {
+    color: var(--highlight-color, #008000);
+}
+
+.bitcoin-calc-form input {
+    background-color: var(--input-background-color, #f9f9f9);
+    color: var(--input-text-color, #000);
+    border: 1px solid var(--border-color, #ccc);
+}
+
+.bitcoin-calc-form button {
+    background-color: #007bff;
+    color: white;
+}
+
+.bitcoin-calc-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Mörkt läge */
+body[data-theme='dark'] .bitcoin-calc-form {
+    background-color: #333333;
+    color: #ffffff;
+    border: 1px solid #444444;
+}
+
+body[data-theme='dark'] .bitcoin-calc-form input {
+    background-color: #444444;
+    color: #ffffff;
+    border: 1px solid #555555;
+}

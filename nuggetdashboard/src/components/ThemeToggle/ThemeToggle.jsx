@@ -1,5 +1,6 @@
-// ThemeToggle.jsx
 import React, { useEffect, useState } from 'react';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const ThemeToggle = () => {
     const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
@@ -9,14 +10,21 @@ const ThemeToggle = () => {
         localStorage.setItem('theme', theme);
     }, [theme]);
 
-    const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
+    const toggleTheme = (event) => {
+        setTheme(event.target.checked ? 'dark' : 'light');
     };
 
     return (
-        <button onClick={toggleTheme}>
-            Växla till {theme === 'dark' ? 'ljus' : 'mörk'} tema
-        </button>
+        <FormControlLabel
+            control={
+                <Switch
+                    checked={theme === 'dark'}
+                    onChange={toggleTheme}
+                    inputProps={{ 'aria-label': 'Tema växlare' }}
+                />
+            }
+            label={theme === 'dark' ? 'Mörkt tema' : 'Ljust tema'}
+        />
     );
 };
 
