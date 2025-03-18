@@ -7,16 +7,10 @@
 }
 
 
-.header {
-    background-color: #333;
-    text-align: center;
-    padding: 2rem;
-}
 
 .title {
     font-size: 2rem;
     font-weight: bold;
-    color: white;
 }
 
 /* Main content */
@@ -30,11 +24,11 @@
     border: 1px solid #d1d5db;
     padding: 1rem;
     border-radius: 0.5rem;
-    width: 100%;
+    width: 30%;
     margin-bottom: 1.5rem;
 }
 
-/* Container för sparmål */
+
 .savings-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -48,7 +42,7 @@
 .section-title {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #1f2937; /* Dark gray */
+    color: #1f2937; 
     text-align: center;
     margin-bottom: 1.5rem;
 }

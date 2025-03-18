@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeSavings, toggleComplete } from '../store/bitcoinSlice';
-import '../styles/Dashboard.css';
+import { removeSavings, toggleComplete } from '../../store/bitcoinSlice';
+import '../../styles/Dashboard.css';
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -28,9 +28,6 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard-container">
-            <header className="header">
-                <h1 className="title">Dashboard</h1>
-            </header>
             <main className="main-content">
                 <input
                     type="text"
@@ -82,7 +79,6 @@ const Dashboard = () => {
                 </div>
             </main>
 
-            {/* Modal för bekräftelse av borttagning */}
             {isModalOpen && (
                 <div className="modal">
                     <div className="modal-content">

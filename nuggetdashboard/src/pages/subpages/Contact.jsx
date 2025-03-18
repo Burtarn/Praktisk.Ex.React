@@ -1,9 +1,9 @@
-import FormComponent from "../../components/Form";
+import FormComponent from "../../components/Form/Form";
 
 function Contact() {
   return (
     <div className="flex-row justify-center max-w-lg m-auto">
-      <h3>Contact</h3>
+      <h3>Skapa Support-ärende</h3>
       <FormComponent />
     </div>
   );

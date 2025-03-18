@@ -1,19 +1,19 @@
 import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
-const Homepage = lazy(() => import("../pages/Homepage"));
-const AboutPage = lazy(() => import("../pages/AboutPage"));
-const ProductsPage = lazy(() => import("../pages/ProductsPage"));
-const SavingsPage = lazy(() => import("../pages/SavingsPage"));
-const NotFound = lazy(() => import("../pages/NotFound"));
+const Homepage = lazy(() => import("../pages/MainPages/Homepage"));
+const AboutPage = lazy(() => import("../pages/MainPages/AboutPage"));
+const ProductsPage = lazy(() => import("../pages/MainPages/ProductsPage"));
+const SavingsPage = lazy(() => import("../pages/MainPages/SavingsPage"));
+const NotFound = lazy(() => import("../pages/MainPages/NotFound"));
 const ContactPage = lazy(() => import("../pages/subpages/Contact")); 
 const FAQPage = lazy(() => import("../pages/subpages/faq")); 
 const History = lazy(() => import("../pages/subpages/History")); 
-const Dashboard = lazy(() => import("../pages/Dashboard"));
+const Dashboard = lazy(() => import("../pages/MainPages/Dashboard"));
 
 
-import Profile from "../pages/Profile"; 
-import Login from "../pages/Login"; 
+import Profile from "../pages/MainPages/Profile"; 
+import Login from "../pages/MainPages/Login"; 
 
 
 const routes = () => [
