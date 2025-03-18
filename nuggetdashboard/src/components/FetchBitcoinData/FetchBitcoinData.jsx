@@ -1,36 +1,16 @@
-import React, { useEffect, useState } from 'react';
-
-// json-server --watch db.json --port 3001
-
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBitcoinData, selectBitcoinData, selectLoading, selectError } from './bitcoinSlice';
 
 const FetchBitcoinData = () => {
-    const URL = '';
-    const APIKEY = '';
-
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+    const data = useSelector(selectBitcoinData);
+    const loading = useSelector(selectLoading);
+    const error = useSelector(selectError);
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await fetch(`${URL}?apiKey=${APIKEY}`);
-                
-                if (!response.ok) {
-                    const errorMessage = await response.text(); 
-                    throw new Error(`Fel: ${response.status} - ${errorMessage}`);
-                }
-
-                const result = await response.json();
-                setData(result.data); 
-                setLoading(false);
-            } catch (error) {
-                setError(error.message);
-                setLoading(false);
-            }
-        }
-        fetchData();
-    }, []);
+        dispatch(fetchBitcoinData());
+    }, [dispatch]);
 
     if (loading) {
         return <p>Loading...</p>;

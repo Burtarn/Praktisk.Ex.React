@@ -12,7 +12,7 @@ function BitCoinCalcForm() {
   const [år, setÅr] = useState(1);
   const [mål, setMål] = useState(""); 
   const [modalVisible, setModalVisible] = useState(false); 
-  const årligAvkastning = 10;
+  const årligAvkastning = 8;
 
   const beräknaFramtidaVärde = (startbelopp, månadsinsättning, år, årligAvkastning) => {
     const r = årligAvkastning / 100 / 12; 
@@ -133,7 +133,7 @@ function BitCoinCalcForm() {
       </button>
 
       <p className="text-xs text-gray-500 mt-4">
-        *Vi har beräknat att du kommer att få en årlig ökning på 30% per år.
+        *Vi har beräknat att du kommer att få en årlig ökning på 8% per år.
       </p>
 
       {modalVisible && (

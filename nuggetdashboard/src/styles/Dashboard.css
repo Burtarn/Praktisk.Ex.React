@@ -55,21 +55,7 @@
     gap: 2rem;
 }
 
-/* Modal - Overlay */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 25%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Halvtransparent bakgrund */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Se till att modalen ligger ovanpå andra element */
-    opacity: 1;
-    transition: opacity 0.3s ease;
-}
+
 
 .modal {
     position: fixed;
@@ -84,15 +70,29 @@
     z-index: 1000;
 }
 
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ändra till 100% för att täcka hela skärmen */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
 .modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 30%;
-
-
+    width: 90%; /* Gör den 90% bred på mobila enheter */
+    max-width: 500px; /* Maxbredd för större skärmar */
 }
 
 .modal-buttons {
