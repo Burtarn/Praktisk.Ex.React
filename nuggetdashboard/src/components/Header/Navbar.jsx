@@ -39,7 +39,7 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item">
                             <Link to="/products" className="nav-links" onClick={toggleMenu}>
-                                <i className="fas fa-box"></i> Produkter
+                                <i className="fas fa-box"></i> Sparkalkylator
                             </Link>
                         </li>
                     </ul>

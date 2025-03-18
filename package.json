@@ -9,6 +9,7 @@
     "@heroicons/react": "^2.2.0",
     "@mui/material": "^6.4.8",
     "@mui/x-charts": "^7.27.1",
+    "@react-email/components": "^0.0.34",
     "@reduxjs/toolkit": "^2.6.0",
     "@tailwindcss/vite": "^4.0.9",
     "daisyui": "^4.12.24",
