@@ -1,29 +1,29 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import routes from './routing/Routing'; 
 import Navbar from './components/Header/Navbar'; 
-
+import { AuthContext } from './context/AuthContext'; 
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-import './index.css'
+import './index.css';
 
 const App = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false); 
+    const { isLoggedIn, logout } = useContext(AuthContext);
 
     return (
-        <Router>
-            <Navbar setIsLoggedIn={setIsLoggedIn} /> 
+        <>
+            <Navbar isLoggedIn={isLoggedIn} logout={logout} /> 
             <Routes>
                 {routes(isLoggedIn).map((r, index) => (
                     <Route 
                         key={index} 
                         path={r.path} 
                         element={
-                            React.cloneElement(r.element, { setIsLoggedIn }) 
+                            React.cloneElement(r.element, { isLoggedIn }) 
                         } 
                     />
                 ))}
             </Routes>
-        </Router>
+        </>
     );
 };
 

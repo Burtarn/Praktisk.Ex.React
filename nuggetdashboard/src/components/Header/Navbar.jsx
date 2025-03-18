@@ -6,7 +6,7 @@ import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
 import { useSelector } from 'react-redux';
 import '../../styles/Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ isLoggedIn }) => {
     const bitcoinSavings = useSelector((state) => state.bitcoinSavings.savings); 
     const dataCount = bitcoinSavings.length; 
     
@@ -42,6 +42,13 @@ const Navbar = () => {
                                 <i className="fas fa-box"></i> Sparkalkylator
                             </Link>
                         </li>
+                        {isLoggedIn && (
+                            <li className="nav-item">
+                                <Link to="/profile" className="nav-links" onClick={toggleMenu}>
+                                    <i className="fas fa-user-circle"></i> Profil
+                                </Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div className="nav-login" style={{ display: 'flex', alignItems: 'center' }}>
@@ -51,25 +58,29 @@ const Navbar = () => {
                                 icon={faDatabase} 
                                 style={{ color: dataCount > 0 ? 'green' : 'white' }}
                             />
-                    {dataCount > 0 && (
-                        <div 
-                            style={{
-                                position: 'absolute',
-                                top: '8px',
-                                right: '20px',
-                                width: '0',
-                                height: '0',
-                                borderTop: '5px solid transparent',
-                                borderBottom: '5px solid transparent',
-                                borderLeft: '5px solid green', 
-                            }}
-                        />
-                    )}
+                            {dataCount > 0 && (
+                                <div 
+                                    style={{
+                                        position: 'absolute',
+                                        top: '8px',
+                                        right: '20px',
+                                        width: '0',
+                                        height: '0',
+                                        borderTop: '5px solid transparent',
+                                        borderBottom: '5px solid transparent',
+                                        borderLeft: '5px solid green', 
+                                    }}
+                                />
+                            )}
                         </div>
                     </Link>
-                    <Link to="/login" className="nav-links" onClick={toggleMenu}>
-                        <FontAwesomeIcon icon={faUser} />
-                    </Link>
+                    {!isLoggedIn ? (
+                        <Link to="/login" className="nav-links" onClick={toggleMenu}>
+                            <FontAwesomeIcon icon={faUser} />
+                        </Link>
+                    ) : (
+                        <span className="nav-links">Inloggad</span>
+                    )}
                 </div>
             </div>
         </nav>

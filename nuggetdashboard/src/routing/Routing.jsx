@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from '../pages/ProtectedRoute/ProtectedRoute'
 
 const Homepage = lazy(() => import("../pages/MainPages/Homepage"));
 const AboutPage = lazy(() => import("../pages/MainPages/AboutPage"));
@@ -10,13 +11,11 @@ const ContactPage = lazy(() => import("../pages/subpages/Contact"));
 const FAQPage = lazy(() => import("../pages/subpages/faq")); 
 const History = lazy(() => import("../pages/subpages/History")); 
 const Dashboard = lazy(() => import("../pages/MainPages/Dashboard"));
-
-
 import Profile from "../pages/MainPages/Profile"; 
 import Login from "../pages/MainPages/Login"; 
+import ProtectedRoute from "../pages/ProtectedRoute/ProtectedRoute";
 
-
-const routes = () => [
+const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "/",
         element: (
@@ -83,11 +82,15 @@ const routes = () => [
     },
     {
         path: "/login", 
-        element: <Login />, 
+        element: <Login setIsLoggedIn={setIsLoggedIn} />, 
     },
     {
         path: "/profile", 
-        element: <Profile />, 
+        element: (
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <Profile />
+            </ProtectedRoute>
+        ),
     },
     {
         path: "*",

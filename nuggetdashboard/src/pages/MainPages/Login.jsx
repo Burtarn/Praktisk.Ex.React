@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
 import '../../styles/Login.css';
 
-const Login = ({ setIsLoggedIn }) => {
+const Login = () => {
+    const { login } = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
-
+        
         if (username === 'admin' && password === 'admin') {
-            setIsLoggedIn(true);
+            login();
             navigate('/profile');
         } else {
             alert('Inloggningen misslyckades. Kontrollera dina uppgifter.');
