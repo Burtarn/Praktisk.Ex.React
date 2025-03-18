@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDatabase, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faDatabase, faUser, faUserCheck } from '@fortawesome/free-solid-svg-icons';
 import { faBitcoin } from '@fortawesome/free-brands-svg-icons'; 
 import { useSelector } from 'react-redux';
 import '../../styles/Navbar.css';
@@ -79,7 +79,9 @@ const Navbar = ({ isLoggedIn }) => {
                             <FontAwesomeIcon icon={faUser} />
                         </Link>
                     ) : (
-                        <span className="nav-links">Inloggad</span>
+                    <span className="nav-links">
+                        <FontAwesomeIcon icon={faUserCheck} style={{ color: 'green' }} />
+                    </span>
                     )}
                 </div>
             </div>
