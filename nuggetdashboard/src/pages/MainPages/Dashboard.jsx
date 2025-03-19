@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeSavings, toggleComplete } from '../../store/bitcoinSlice';
 import '../../styles/Dashboard.css';
+import BitcoinSavingsChart from '../../components/charts/BitCoinSavingChart'
+import BitcoinSavingsPieChart from '../../components/charts/BitCoinPieChart'
+
 
 const Dashboard = () => {
     const dispatch = useDispatch();
@@ -91,8 +94,12 @@ const Dashboard = () => {
                     </div>
                 </div>
             )}
+                        < BitcoinSavingsChart />
+                        < BitcoinSavingsPieChart />
         </div>
+        
     );
 };
 
 export default Dashboard;
+
