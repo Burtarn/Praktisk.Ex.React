@@ -12,7 +12,7 @@ const AboutPage = () => {
 
             <h2 className="about-subheading">Undersidor</h2>
             
-            <nav className="navbar">
+            <nav className="">
                 <ul>
                     <li>
                         <Link

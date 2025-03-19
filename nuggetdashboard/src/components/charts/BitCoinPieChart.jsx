@@ -7,7 +7,7 @@ Chart.register(...registerables);
 const BitcoinSavingsPieChart = () => {
     const savings = useSelector(state => state.bitcoinSavings.savings);
     
-    // Hämta månadsinsättningar och beräkna totalen
+
     const monthlyContributions = savings.map(saving => saving.månadsinsättning);
     const contributionCounts = {};
     monthlyContributions.forEach(amount => {
@@ -40,17 +40,8 @@ const BitcoinSavingsPieChart = () => {
                 }],
             },
             options: {
-                responsive: true,
-                aspectRatio: 1, // Detta gör att diagrammet är cirkulärt
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: (tooltipItem) => {
-                                return `${tooltipItem.label}: ${tooltipItem.raw}`;
-                            },
-                        },
-                    },
-                },
+                responsive: false,
+                maintainAspectRatio: true,
             },
         });
 
@@ -65,9 +56,9 @@ const BitcoinSavingsPieChart = () => {
     }, [savings]);
 
     return (
-        <div>
+        <div className="flex flex-col items-center">
             <h2 className="text-lg font-bold text-center">Dina Månadsinsättningar</h2>
-            <canvas ref={chartRef} style={{ width: '128px', height: '128px' }}></canvas> {/* Justera storleken här */}
+            <canvas ref={chartRef} className="small-canvas"></canvas>
         </div>
     );
 };

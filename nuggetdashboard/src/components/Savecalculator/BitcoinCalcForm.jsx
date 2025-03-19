@@ -126,11 +126,18 @@ function BitCoinCalcForm() {
       </form>
       
       <button
-        onClick={hanteraSpara}
-        className="bg-blue-500 text-white py-2 px-4 hover:bg-blue-600 rounded-lg mt-3"
-      >
-        Spara Värden
-      </button>
+  onClick={hanteraSpara}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter') {
+      hanteraSpara(); 
+    }
+  }}
+  className="bg-blue-500 text-white py-2 px-4 hover:bg-blue-600 rounded-lg mt-3"
+  tabIndex="0" 
+>
+  Spara Värden
+</button>
+
 
       <p className="text-xs text-gray-500 mt-4">
         *Vi har beräknat att du kommer att få en årlig ökning på 8% per år.

@@ -6,13 +6,7 @@ import CircularText from "../../components/RotatingText/CircularText";
 function HomePage() {
   return (
     <div>
-      <h2 className="text-2xl font-bold text-center text-black">
-        Important things in life
-      </h2>
-      <div className="flex justify-center gap-8">
-        <BasicPie />
-        <SimpleLineChart />
-      </div>
+      < HeroVideo />
       <section className="mt-5">
         <CircularText text="Bitcoin" />
       </section>

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Chart, registerables } from 'chart.js';
+import '../../styles/BitcoinSavingChart.css'
 
 Chart.register(...registerables);
 
@@ -10,7 +11,6 @@ const BitcoinSavingsChart = () => {
     const chartInstanceRef = useRef(null);
 
     useEffect(() => {
-
         if (chartInstanceRef.current) {
             chartInstanceRef.current.destroy();
         }
@@ -45,7 +45,7 @@ const BitcoinSavingsChart = () => {
                 }],
             },
             options: {
-                responsive: true,
+                responsive: false,
                 scales: {
                     y: {
                         beginAtZero: true,
@@ -66,7 +66,7 @@ const BitcoinSavingsChart = () => {
                 },
             },
         });
-        
+
         // Rensa upp diagrammet vid avmontering
         return () => {
             if (chartInstanceRef.current) {
@@ -76,10 +76,9 @@ const BitcoinSavingsChart = () => {
     }, [savings]);
 
     return (
-        <div>
-            <h2 className='text-center
-'>Bitcoin Sparmål Diagram</h2>
-            <canvas ref={chartRef}></canvas>
+        <div className="flex flex-col items-center">
+            <h2 className='text-center'> Sparmål </h2>
+            <canvas ref={chartRef} className="small-canvas"></canvas>
         </div>
     );
 };

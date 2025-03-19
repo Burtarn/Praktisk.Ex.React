@@ -3,6 +3,11 @@
     height: 60px;
     display: flex;
     align-items: center;
+    position: fixed; /* Gör navbaren fast så att den stannar på toppen */
+    top: 0; /* Håller navbaren högst upp */
+    left: 0;
+    right: 0;
+    z-index: 1000; 
 }
 
 .navbar-container {
@@ -42,6 +47,8 @@
 .menu-icon {
     display: none;
     cursor: pointer;
+    font-size: 1.8rem;
+    color: white;
 }
 
 

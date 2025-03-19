@@ -11,6 +11,7 @@ const ContactPage = lazy(() => import("../pages/subpages/Contact"));
 const FAQPage = lazy(() => import("../pages/subpages/faq")); 
 const History = lazy(() => import("../pages/subpages/History")); 
 const Dashboard = lazy(() => import("../pages/MainPages/Dashboard"));
+
 import Profile from "../pages/MainPages/Profile"; 
 import Login from "../pages/MainPages/Login"; 
 import ProtectedRoute from "../pages/ProtectedRoute/ProtectedRoute";
@@ -88,7 +89,7 @@ const routes = (isLoggedIn, setIsLoggedIn) => [
         path: "/profile", 
         element: (
             <ProtectedRoute isLoggedIn={isLoggedIn}>
-            <Profile />
+            <Profile aria-live="assertive" aria-label="Profil - Skyddad användarsida" />
             </ProtectedRoute>
         ),
     },

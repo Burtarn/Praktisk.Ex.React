@@ -193,6 +193,11 @@
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    display: flex; /* Lägg till flexbox för att centrera inuti */
+    flex-direction: column; /* Vertikal centering */
+    justify-content: center; /* Centrera vertikalt */
+    align-items: center; /* Centrera horisontellt */
+    height: 100%; /* Gör så att den fyller förälderns höjd */
 }
 
 

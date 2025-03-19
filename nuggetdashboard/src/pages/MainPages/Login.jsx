@@ -7,6 +7,7 @@ const Login = () => {
     const { login } = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [wrongInput, setWrongInput] = useState('')
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
@@ -16,7 +17,7 @@ const Login = () => {
             login();
             navigate('/profile');
         } else {
-            alert('Inloggningen misslyckades. Kontrollera dina uppgifter.');
+            setWrongInput('Felaktiga uppgifter. Försök igen')
         }
     };
 
@@ -46,6 +47,7 @@ const Login = () => {
                         className="form-input"
                     />
                 </div>
+                {wrongInput && <p style={{ color: 'red', fontWeight: 'bold' }}>{wrongInput}</p>}
                 <button type="submit" className="login-button">Logga In</button>
             </form>
         </div>
