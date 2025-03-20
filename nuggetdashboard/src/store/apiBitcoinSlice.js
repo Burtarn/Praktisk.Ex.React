@@ -1,12 +1,11 @@
     import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-    const URL = ''; // Sätt din URL här
-    const APIKEY = ''; // Sätt din API-key här
+    const URL = 'http://localhost:5000/bitcoin'; 
 
     export const fetchBitcoinData = createAsyncThunk(
         'bitcoin/fetchBitcoinData',
         async () => {
-            const response = await fetch(`${URL}?apiKey=${APIKEY}`);
+            const response = await fetch(`${URL}`);
             if (!response.ok) {
                 const errorMessage = await response.text();
                 throw new Error(`Fel: ${response.status} - ${errorMessage}`);

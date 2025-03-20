@@ -1,10 +1,6 @@
 .small-canvas {
-    width: 350px; 
-    height: 350px; 
+    width: 250px; 
+    height: 250px; 
 }
 
-.responsive-canvas {
-    width: 100%;
-    max-width: 500px; /* Maximalt 500px, justera vid behov */
-    height: auto;
-}
+

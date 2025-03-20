@@ -7,7 +7,6 @@ Chart.register(...registerables);
 const BitcoinSavingsPieChart = () => {
     const savings = useSelector(state => state.bitcoinSavings.savings);
     
-
     const monthlyContributions = savings.map(saving => saving.månadsinsättning);
     const contributionCounts = {};
     monthlyContributions.forEach(amount => {
@@ -21,7 +20,7 @@ const BitcoinSavingsPieChart = () => {
 
     React.useEffect(() => {
         const ctx = chartRef.current.getContext('2d');
-        new Chart(ctx, {
+        const chartInstance = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels: labels,
@@ -40,25 +39,22 @@ const BitcoinSavingsPieChart = () => {
                 }],
             },
             options: {
-                responsive: false,
-                maintainAspectRatio: true,
+                responsive: false, 
+                maintainAspectRatio: false, 
             },
         });
 
         return () => {
             if (chartRef.current) {
-                const chartInstance = Chart.getChart(chartRef.current);
-                if (chartInstance) {
-                    chartInstance.destroy();
-                }
+                chartInstance.destroy();
             }
         };
     }, [savings]);
 
     return (
         <div className="flex flex-col items-center">
-            <h2 className="text-lg font-bold text-center">Dina Månadsinsättningar</h2>
-            <canvas ref={chartRef} className="small-canvas"></canvas>
+            <h2 className="text-center text-lg font-bold">Dina Månadsinsättningar</h2>
+            <canvas ref={chartRef} style={{ width: '250px', height: '250px' }}></canvas>
         </div>
     );
 };
