@@ -11,7 +11,7 @@
                 throw new Error(`Fel: ${response.status} - ${errorMessage}`);
             }
             const data = await response.json();
-            console.log('Fetched data:', data); // Logga hela datan
+            console.log('Fetched data:', data); 
             return data;
         }
     );
@@ -31,7 +31,7 @@
                 })
                 .addCase(fetchBitcoinData.fulfilled, (state, action) => {
                     state.loading = false;
-                    state.data = action.payload; // Sätt datan här
+                    state.data = action.payload; 
                 })
                 .addCase(fetchBitcoinData.rejected, (state, action) => {
                     state.loading = false;

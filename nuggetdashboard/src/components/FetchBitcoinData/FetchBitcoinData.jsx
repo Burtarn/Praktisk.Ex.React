@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Spinner from '../../components/Spinner/Spinner'
 import { fetchBitcoinData, selectBitcoinData, selectLoading, selectError } from '../../store/apiBitcoinSlice';
 import { Bar } from 'react-chartjs-2';
 import {
@@ -20,11 +21,12 @@ const FetchBitcoinData = () => {
     const loading = useSelector(selectLoading);
     const error = useSelector(selectError);
 
+
     useEffect(() => {
         dispatch(fetchBitcoinData());
     }, [dispatch]);
 
-    if (loading) return <p>Laddar...</p>;
+    if (loading) return < Spinner />;
     if (error) return <p>{error}</p>;
     if (!data || Object.keys(data).length === 0) return <p>Inga data att visa</p>;
 

@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from "react";
-import { createBrowserRouter } from "react-router-dom";
-import PrivateRoute from '../pages/ProtectedRoute/ProtectedRoute'
+import Spinner from "../components/Spinner/Spinner";
+
 
 const Homepage = lazy(() => import("../pages/MainPages/Homepage"));
 const AboutPage = lazy(() => import("../pages/MainPages/AboutPage"));
@@ -16,11 +16,12 @@ import Profile from "../pages/MainPages/Profile";
 import Login from "../pages/MainPages/Login"; 
 import ProtectedRoute from "../pages/ProtectedRoute/ProtectedRoute";
 
+
 const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "/",
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={ <Spinner/> }>
                 <Homepage />
             </Suspense>
         ),
@@ -28,7 +29,7 @@ const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "/about",
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={ <Spinner/> }>
                 <AboutPage />
             </Suspense>
         ),
@@ -36,7 +37,7 @@ const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "/about/contact", 
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={ <Spinner/> }>
                 <ContactPage />
             </Suspense>
         ),
@@ -44,7 +45,7 @@ const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "/about/faq", 
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={ <Spinner/> }>
                 <FAQPage />
             </Suspense>
         ),
@@ -52,7 +53,7 @@ const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "/about/history",  
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={ <Spinner/> }>
                 <History />
             </Suspense>
         ),
@@ -60,7 +61,7 @@ const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "/products",
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={ <Spinner/> }>
                 <ProductsPage />
             </Suspense>
         ),
@@ -68,7 +69,7 @@ const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "/savings",
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Spinner/>}>
                 <SavingsPage />
             </Suspense>
         ),
@@ -76,7 +77,7 @@ const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "/dashboard", 
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Spinner/>}>
                 <Dashboard />
             </Suspense>
         ),
@@ -96,7 +97,7 @@ const routes = (isLoggedIn, setIsLoggedIn) => [
     {
         path: "*",
         element: (
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Spinner/>}>
                 <NotFound />
             </Suspense>
         ),

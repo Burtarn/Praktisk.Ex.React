@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Spinner from '../../components/Spinner/Spinner'
 import { Bar } from 'react-chartjs-2';
 import {
     Chart as ChartJS,
@@ -38,7 +39,7 @@ const FetchIndexData = () => {
     }, []);
 
     if (loading) {
-        return <p>Laddar..</p>;
+        return < Spinner />;
     }
 
     if (error) {

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Chart, registerables } from 'chart.js';
-import '../../styles/BitcoinSavingChart.css'
+import '../../styles/BitcoinSavingChart.css';
 
 Chart.register(...registerables);
 
@@ -45,15 +45,33 @@ const BitcoinSavingsChart = () => {
                 }],
             },
             options: {
-                responsive: false,
+                responsive: true,
+                maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        top: 10, // Minska padding
+                        bottom: 10,
+                        left: 10,
+                        right: 10,
+                    }
+                },
                 scales: {
                     y: {
                         beginAtZero: true,
                         title: {
                             display: true,
-                            text: 'Framtida Värde (SEK)'
+                            text: 'Framtida Värde (SEK)',
+                            padding: 10, // Padding för y-axelns titel
+                        },
+                        ticks: {
+                            padding: 5, // Minska avståndet mellan ticks
                         }
                     },
+                    x: {
+                        ticks: {
+                            padding: 5, // Minska avståndet mellan ticks
+                        }
+                    }
                 },
                 plugins: {
                     tooltip: {
@@ -67,7 +85,7 @@ const BitcoinSavingsChart = () => {
             },
         });
 
-        // Rensa upp diagrammet vid avmontering
+
         return () => {
             if (chartInstanceRef.current) {
                 chartInstanceRef.current.destroy();
@@ -78,7 +96,9 @@ const BitcoinSavingsChart = () => {
     return (
         <div className="flex flex-col items-center">
             <h2 className='text-center'> Sparmål </h2>
-            <canvas ref={chartRef} className="small-canvas"></canvas>
+            <div style={{ width: '50%', height: '300px' }}> 
+                <canvas ref={chartRef} className="small-canvas"></canvas>
+            </div>
         </div>
     );
 };

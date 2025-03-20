@@ -8,14 +8,19 @@ function HomePage() {
   return (
     <div>
       <HeroVideo />
-      <section className="mt-5">
-        <CircularText text="Bitcoin" />
+      <section className="mt-5" style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
+        <div style={{ flex: '1 1 300px', margin: '10px' }}>
+          <CircularText text="Bitcoin" />
+        </div>
+        <div style={{ flex: '1 1 300px', margin: '10px' }}>
+          <CircularText text="OMX30" />
+        </div>
       </section>
       <section style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
-        <div style={{ flex: '1 1 400px', margin: '20px 10px 20px 10px' }}> 
+        <div style={{ flex: '1 1 400px', margin: '20px 10px' }}>
           <FetchBitcoinData />
         </div>
-        <div style={{ flex: '1 1 400px', margin: '20px 10px 20px 10px' }}> 
+        <div style={{ flex: '1 1 400px', margin: '20px 10px' }}>
           <FetchIndexData />
         </div>
       </section>
