@@ -13,6 +13,7 @@ Bitcoin Bros är en React-baserad applikation utvecklad med Vite. Den hjälper a
 - **Redux** – Hantering av global state
 - **Context** – För hantering av inlogg
 - **Localstorage** – För att spara informationen mellan sidladdningar (inlogg, sparmål)
+- - **Darkmode** – För hantering av anv UI.
   
 ## Installation och körning
 
