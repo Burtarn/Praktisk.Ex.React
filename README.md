@@ -1,51 +1,52 @@
 # Bitcoin Bros
 
-# Projektbeskrivning
+## Projektbeskrivning
 
-Det här projektet är en React-applikation byggd med Vite. Det använder Tailwind CSS och Bootstrap för styling samt Redux för state management.
-Applikationen har en modern design och responsivt gränssnitt, och hanterar global state effektivt med Redux.
+Bitcoin Bros är en React-baserad applikation utvecklad med Vite. Den hjälper användare att hantera sina sparmål genom att lägga till, ta bort och uppdatera dem. Applikationen erbjuder en visuell sammanställning av sparmålen via diagram samt hämtar aktuella valutakurser för att ge en uppdaterad översikt.
 
-# Teknikval
+## Tekniker
 
-React – Frontend-bibliotek för att bygga UI-komponenter
+- **React** – UI-bibliotek för att bygga dynamiska komponenter
+- **Vite** – Snabb utvecklingsmiljö för React
+- **Tailwind CSS** – Utility-first CSS-ramverk för styling
+- **Bootstrap** – Komponentbaserat CSS-ramverk för ytterligare styling
+- **Redux** – Hantering av global state
+- **Context** – För hantering av inlogg
+- **Localstorage** – För att spara informationen mellan sidladdningar (inlogg, sparmål)
+  
+## Installation och körning
 
-Vite – Snabb utvecklingsmiljö för React
+Följ dessa steg för att installera och starta projektet lokalt:
 
-Tailwind CSS – Utility-first CSS-ramverk för styling
+1. Klona repot från GitHub:
+   ```sh
+   git clone <repo-url>
+   cd bitcoin-bros
+   ```
+2. Installera beroenden:
+   ```sh
+   npm install
+   ```
+3. Starta utvecklingsservern:
+   ```sh
+   npm run dev
+   ```
+   Applikationen körs nu på [http://localhost:5173](http://localhost:5173).
 
-Bootstrap – Komponentbaserat CSS-ramverk för ytterligare styling
+## Funktioner
 
-Redux – Hantering av global state
+- **Hantera sparmål** – Lägg till, ta bort och uppdatera sparmål
+- **Diagramvisning** – Se en grafisk sammanställning av sparmål
+- **Live valutakurser** – Hämtar aktuella kurser för bättre sparanalys
+- **Responsiv design** – Anpassad för alla enheter med Tailwind CSS och Bootstrap
+- **Effektiv state management** – Redux används för att hantera global data
+- - **Inloggning** – Context används för hantera inloggning.
 
-# Installation och körning
+## Licens
 
-1. Klona repo från GitHub
+Detta projekt är licensierat under MIT-licensen. Du är fri att använda, modifiera och distribuera det.
 
-git clone <repo-url>
-cd nuggetdashboard
+## Planeringslänkar
 
-2. Installera beroenden
+För mer information om projektplaneringen, besök: [Google Docs](https://docs.google.com/document/d/1H4eDuZfrzw68r0HXZTlOL5OC27io28WSMaKc7NazzCg/edit?tab=t.0#heading=h.jlszf379mo0x)
 
-npm install
-
-3. Starta utvecklingsservern
-
-npm run dev
-
-Applikationen körs nu på http://localhost:5173/.
-
-
-# Funktioner
-
-Responsiv design med Tailwind CSS & Bootstrap
-State management med Redux
-Snabb utveckling med Vite
-Modulär och komponentbaserad struktur
-
-# Licens
-
-Detta projekt är under MIT-licensen. Du kan använda, modifiera och distribuera det fritt.
-
-# Planeringslänkar
-
-https://docs.google.com/document/d/1H4eDuZfrzw68r0HXZTlOL5OC27io28WSMaKc7NazzCg/edit?tab=t.0#heading=h.jlszf379mo0x
