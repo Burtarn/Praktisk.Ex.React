@@ -11,14 +11,15 @@
                 throw new Error(`Fel: ${response.status} - ${errorMessage}`);
             }
             const data = await response.json();
-            return data.data;
+            console.log('Fetched data:', data); // Logga hela datan
+            return data;
         }
     );
 
     const bitcoinSlice = createSlice({
         name: 'bitcoin',
         initialState: {
-            data: [],
+            data: {}, 
             loading: false,
             error: null,
         },
@@ -30,7 +31,7 @@
                 })
                 .addCase(fetchBitcoinData.fulfilled, (state, action) => {
                     state.loading = false;
-                    state.data = action.payload;
+                    state.data = action.payload; // Sätt datan här
                 })
                 .addCase(fetchBitcoinData.rejected, (state, action) => {
                     state.loading = false;
