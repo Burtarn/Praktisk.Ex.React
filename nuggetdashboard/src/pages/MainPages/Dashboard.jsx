@@ -94,8 +94,6 @@ const Dashboard = () => {
                     </div>
                 </div>
             )}
-                        < BitcoinSavingsChart />
-                        < BitcoinSavingsPieChart />
         </div>
         
     );
