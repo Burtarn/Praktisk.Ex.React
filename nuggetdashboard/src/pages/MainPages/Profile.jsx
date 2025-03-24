@@ -14,7 +14,7 @@ const Profile = () => {
                 <h2 className="text-2xl font-bold mb-2">Min Profil</h2>
                 <p className="text-lg">Välkommen till din profil!</p>
             </div>
-            <div className="theme-toggle-container mb-4">
+            <div className="mb-4 theme-toggle-container">
                 <ThemeToggle />
             </div>
             <section>
@@ -27,7 +27,7 @@ const Profile = () => {
             <div className="mt-4">
                 <button 
                     onClick={logout} 
-                    className="w-20px py-2 px-4 rounded bg-green-600 text-white font-semibold hover:bg-green-700 transition duration-300"
+                    className="bg-green-600 rounded text-white w-20px duration-300 font-semibold hover:bg-green-700 px-4 py-2 transition"
                 >
                     Logga ut
                 </button>

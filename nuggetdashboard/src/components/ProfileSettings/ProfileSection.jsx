@@ -3,9 +3,10 @@ import '../../styles/ProfilSection.css'
 
 const ProfileSection = () => {
     const [isEditing, setIsEditing] = useState(false);
-    const [name, setName] = useState("Förnamn");
+    const [name, setName] = useState("Robin");
     const [email, setEmail] = useState("exempel@domain.com");
-    const [age, setAge] = useState("25");
+    const [age, setAge] = useState("33");
+    const [card, setCard] = useState("XXXX-XXXX-XXXX");
 
     const handleEdit = () => {
         setIsEditing(true);
@@ -13,7 +14,6 @@ const ProfileSection = () => {
 
     const handleSave = () => {
         setIsEditing(false);
-        // Här kan du lägga till logik för att spara ändringar, t.ex. via en API-anrop
     };
 
     return (
@@ -21,7 +21,7 @@ const ProfileSection = () => {
             <h3>Profilinformation</h3>
             <div>
                 <label>
-                    Förnamn:
+                    Namn:
                     <input
                         type="text"
                         value={name}
@@ -48,6 +48,17 @@ const ProfileSection = () => {
                         type="number"
                         value={age}
                         onChange={(e) => setAge(e.target.value)}
+                        disabled={!isEditing}
+                    />
+                </label>
+            </div>
+            <div>
+                <label>
+                    Kortuppgifter:
+                    <input
+                        type="number"
+                        value={card}
+                        onChange={(e) => setCard(e.target.value)}
                         disabled={!isEditing}
                     />
                 </label>
