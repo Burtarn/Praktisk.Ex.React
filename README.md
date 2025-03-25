@@ -42,6 +42,12 @@ Följ dessa steg för att installera och starta projektet lokalt:
 - **Responsiv design** – Anpassad för alla enheter med Tailwind CSS och Bootstrap
 - **Effektiv state management** – Redux används för att hantera global data
 - - **Inloggning** – Context används för hantera inloggning.
+ 
+## Bibliotek
+- react bits
+- charts.js
+- bootstrap
+
 
 ## Licens
 
