@@ -33,9 +33,9 @@ const Navbar = ({ isLoggedIn }) => {
                     className="menu-icon" 
                     onClick={toggleMenu} 
                     onKeyDown={handleKeyDown} 
-                    tabIndex={0} // Gör elementet fokuserbart
-                    role="button" // För att indikera att det är ett klickbart element
-                    aria-label="Öppna/ Stäng meny" // För tillgänglighet
+                    tabIndex={0} 
+                    role="button"
+                    aria-label="Öppna/ Stäng meny" 
                 >
                     <i className={isOpen ? 'fas fa-times' : 'fas fa-bars'} />
                 </div>
