@@ -28,13 +28,18 @@ Följ dessa steg för att installera och starta projektet lokalt:
    ```sh
    npm install
    ```
-3. Starta utvecklingsservern:
+3. Kör json.db:
+   ```sh
+   json-server --watch db.json --port 5000
+   ```
+4. Starta utvecklingsservern:
    ```sh
    npm run dev
    ```
    Applikationen körs nu på [http://localhost:5173](http://localhost:5173).
 
 ## Funktioner
+
 
 - **Hantera sparmål** – Lägg till, ta bort och uppdatera sparmål
 - **Diagramvisning** – Se en grafisk sammanställning av sparmål
