@@ -16,13 +16,27 @@ const Navbar = ({ isLoggedIn }) => {
         setIsOpen(!isOpen);
     };
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault(); // Förhindra scrollning när mellanslag trycks ned
+            toggleMenu();
+        }
+    };
+
     return (
         <nav className="navbar">
             <div className="navbar-container">
                 <h1 className="navbar-logo">
                     BB <FontAwesomeIcon icon={faBitcoin} /> 
                 </h1>
-                <div className="menu-icon" onClick={toggleMenu}>
+                <div 
+                    className="menu-icon" 
+                    onClick={toggleMenu} 
+                    onKeyDown={handleKeyDown} 
+                    tabIndex={0} // Gör elementet fokuserbart
+                    role="button" // För att indikera att det är ett klickbart element
+                    aria-label="Öppna/ Stäng meny" // För tillgänglighet
+                >
                     <i className={isOpen ? 'fas fa-times' : 'fas fa-bars'} />
                 </div>
                 <div className="nav-links-container">

@@ -42,7 +42,7 @@ export default function DecryptedText({
   useEffect(() => {
     if (animateOn !== 'view') return;
 
-    // Funktion för att observera om komponenten är synlig i vyn
+
     const observerCallback = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && !hasAnimated) {
@@ -71,7 +71,7 @@ export default function DecryptedText({
     };
   }, [animateOn, hasAnimated]);
 
-  // Effekten för att skapa texten och animera den
+
   useEffect(() => {
     let interval;
     let currentIteration = 0;
