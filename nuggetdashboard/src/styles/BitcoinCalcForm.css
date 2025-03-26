@@ -1,0 +1,50 @@
+.bitcoin-calc-form {
+    background-color: var(--background-color, #ffffff);
+    color: var(--text-color, #000000);
+    border: 1px solid var(--border-color, #ccc);
+}
+
+.bitcoin-calc-form h5 {
+    color: var(--highlight-color, #008000);
+}
+
+.bitcoin-calc-form input {
+    background-color: var(--input-background-color, #f9f9f9);
+    color: var(--input-text-color, #000);
+    border: 1px solid var(--border-color, #ccc);
+}
+
+.bitcoin-calc-form button {
+    background-color: #007bff;
+    color: white;
+}
+
+.bitcoin-calc-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Mörkt läge */
+body[data-theme='dark'] .bitcoin-calc-form {
+    background-color: #222222;  /* Ännu mörkare bakgrund */
+    color: #e0e0e0;  /* Ljusare text för bättre kontrast */
+    border: 1px solid #333333;  /* Mörkare kantfärg */
+}
+
+body[data-theme='dark'] .bitcoin-calc-form h5 {
+    color: #32cd32;  /* Justering för att få en mer distinkt färg på rubriken i mörkt läge */
+}
+
+body[data-theme='dark'] .bitcoin-calc-form input {
+    background-color: #333333;  /* Mörkare input bakgrund */
+    color: #ffffff;  /* Ljus text på input */
+    border: 1px solid #555555;  /* Mörkare kant */
+}
+
+body[data-theme='dark'] .bitcoin-calc-form button {
+    background-color: #0069d9;  /* Mörkare blå för knappar */
+    color: white;
+}
+
+body[data-theme='dark'] .bitcoin-calc-form button:hover {
+    background-color: #0056b3;  /* Mörkare nyans när man hovrar */
+}

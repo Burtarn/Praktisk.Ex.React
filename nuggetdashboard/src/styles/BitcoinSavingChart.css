@@ -1,0 +1,12 @@
+.small-canvas {
+    width: 1000px;  /* Justera bredden */
+    height: 400px; /* Justera höjden */
+
+}
+
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

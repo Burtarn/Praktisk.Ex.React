@@ -1,54 +1,65 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Spinner from '../../components/Spinner/Spinner'
+import { fetchBitcoinData, selectBitcoinData, selectLoading, selectError } from '../../store/apiBitcoinSlice';
+import { Bar } from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
 
-// json-server --watch db.json --port 3001
-
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const FetchBitcoinData = () => {
-    const URL = '';
-    const APIKEY = '';
+    const dispatch = useDispatch();
+    const data = useSelector(selectBitcoinData);
+    const loading = useSelector(selectLoading);
+    const error = useSelector(selectError);
 
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const response = await fetch(`${URL}?apiKey=${APIKEY}`);
-                
-                if (!response.ok) {
-                    const errorMessage = await response.text(); 
-                    throw new Error(`Fel: ${response.status} - ${errorMessage}`);
-                }
+        dispatch(fetchBitcoinData());
+    }, [dispatch]);
 
-                const result = await response.json();
-                setData(result.data); 
-                setLoading(false);
-            } catch (error) {
-                setError(error.message);
-                setLoading(false);
-            }
-        }
-        fetchData();
-    }, []);
+    if (loading) return < Spinner />;
+    if (error) return <p>{error}</p>;
+    if (!data || Object.keys(data).length === 0) return <p>Inga data att visa</p>;
 
-    if (loading) {
-        return <p>Loading...</p>;
-    }
+    const chartData = {
+        labels: Object.keys(data),
+        datasets: [
+            {
+                label: 'Bitcoin (USD)',
+                data: Object.values(data),
+                backgroundColor: 'rgba(0, 123, 255, 0.6)', // Blå staplar
+                borderColor: 'rgba(0, 123, 255, 1)', // Blå kanter
+                borderWidth: 1,
+            },
+        ],
+    };
 
-    if (error) {
-        return <p>{error}</p>;
-    }
+    const chartOptions = {
+        responsive: true,
+        scales: {
+            x: {
+                stacked: false,
+                barPercentage: 0.5, 
+                categoryPercentage: 0.5, 
+            },
+            y: {
+                beginAtZero: true,
+            },
+        },
+    };
 
     return (
-        <div>
-            <ul>
-                {data.map((key, index) => (
-                    <li key={index}>
-                        {data[key].name}: {data[key].price} USD
-                    </li>
-                ))}
-            </ul>
+        <div style={{ width: '90%', maxWidth: '600px', margin: '0 auto' }}> 
+            <Bar data={chartData} options={chartOptions} />
         </div>
     );
 };

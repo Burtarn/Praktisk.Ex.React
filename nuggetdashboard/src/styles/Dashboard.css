@@ -1,0 +1,214 @@
+/* Allmän layout för dashboarden */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Main content */
+.main-content {
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+.search-input {
+    border: 1px solid #d1d5db;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 80%; /* För större skärmar, gör den större */
+    max-width: 500px; /* Maxbredd för att inte göra den för stor */
+    margin: 0 auto 1.5rem auto;
+    display: block;
+}
+
+
+.savings-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Sektionens titel */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937; 
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Grid-layout för sparmål */
+.savings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%; 
+    max-width: 500px; 
+}
+
+.modal-buttons {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.btn-confirm {
+    background-color: red;
+    color: white;
+    margin-right: 5px;
+}
+
+.btn-cancel {
+    background-color: gray;
+    color: white;
+}
+
+@media (min-width: 640px) {
+    .savings-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1024px) {
+    .savings-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* Individuell sparmålskort */
+.savings-card {
+    border: 1px solid #e5e7eb;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Information om sparmål */
+.savings-info {
+    font-size: 1rem;
+    color: #4b5563; /* Gray */
+    margin-bottom: 0.75rem;
+}
+
+.amount {
+    font-weight: bold;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #9ca3af; /* Light gray for completed */
+}
+
+/* Knapplayout */
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-complete {
+    background-color: #3b82f6; /* Blue */
+    color: white;
+    border: none;
+}
+
+.btn-complete:hover {
+    background-color: #2563eb; /* Darker blue */
+}
+
+.btn-remove {
+    background-color: #ef4444; /* Red */
+    color: white;
+    border: none;
+}
+
+.btn-remove:hover {
+    background-color: #dc2626; /* Darker red */
+}
+
+.no-goals {
+    font-size: 1rem;
+    color: #6b7280; /* Gray */
+    text-align: center;
+    margin-top: 2rem;
+    width: 80%; 
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex; /* Lägg till flexbox för att centrera inuti */
+    flex-direction: column; /* Vertikal centering */
+    justify-content: center; /* Centrera vertikalt */
+    align-items: center; /* Centrera horisontellt */
+    height: 100%; /* Gör så att den fyller förälderns höjd */
+}
+
+
+@media (min-width: 768px) {
+    .search-input {
+        width: 50%; /* Gör den 50% bred på skärmar större än 768px */
+    }
+}
+
+@media (min-width: 1024px) {
+    .search-input {
+        width: 30%; /* Gör den 30% bred på större skärmar */
+    }
+}

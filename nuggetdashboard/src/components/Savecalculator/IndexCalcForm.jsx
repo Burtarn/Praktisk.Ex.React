@@ -30,7 +30,14 @@ function SaveCalcForm() {
     years,
     annualReturn
   );
-  dispatch(indexGrowth(Math.round(indexFutureValue)));
+
+
+  const handleSave = () => {
+    const formattedValue = Math.round(indexFutureValue);
+    const indexValueArray = [formattedValue, startAmount, monthlyDeposit, years];
+    dispatch(indexGrowth(indexValueArray));
+
+  }
 
   return (
     <div className="max-w-lg mx-auto bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center mt-5 mb-5">
@@ -95,6 +102,14 @@ function SaveCalcForm() {
           />
         </div>
       </form>
+
+      <button
+        onClick={handleSave}
+        className="mt-6 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+      >
+        Save Values
+      </button>
+
       <p className="text-xs text-gray-500 mt-4">
         *We have calculated that you will get an annual increase of 7% per year.
       </p>
